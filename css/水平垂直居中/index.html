@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+        }
+        .box {
+            box-sizing:border-box;
+            width: 200px;
+            height: 50px;
+            line-height: 48px;
+            text-align: center;
+            font-size: 16px;
+            border: 1px solid lightblue;
+            background: lightcyan;
+        }
+
+        /* 定位1 */
+        /* body {
+            position: relative;
+        } */
+
+        /* 必须知道盒子具体宽高，因为写样式的时候需要用宽高来计算margin值 */
+        /* .box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -25px;
+            margin-left: -100px;
+        } */
+
+        /* 前提盒子一定要有宽高，但不需要考虑宽高是多少，因为写样式的时候不需要知道宽高 */
+        /* .box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        } */
+
+        /* CSS3方法 不需要知道盒子的具体宽高，缺点是不兼容 */
+        .box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%)
+        }
+
+        /* display: flex: 将父盒子设置为flex盒子。缺点是不兼容 */
+        /* body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        } */
+
+        /* table-cell原本是设置文本水平居中的，但是盒子也可以设置成inline box，也可以实现居中 */
+        /* 缺点：要求父级有固定宽高，百分比不是固定宽高 */
+        .father {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            width: 500px;
+            height: 500px;
+            background: lightcoral;
+        }
+        /* .father {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            background: lightcoral;
+        } */
+        /* .box{
+            display: inline-block;
+        } */
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="box" id="box">
+            盒子水平垂直居中
+        </div>
+    </div>
+    <!-- <div class="box" id="box">
+        盒子水平垂直居中
+    </div> -->
+
+    <script>
+        // let HTML = document.documentElement,
+        //     winW = HTML.clientWidth,
+        //     winH = HTML.clientHeight,
+        //     boxW = box.offsetWidth,
+        //     boxH = box.offsetHeight;
+
+        // box.style.position = "absolute";
+        // box.style.left = (winW - boxW) / 2 + 'px';
+        // box.style.top = (winH - boxH) / 2 + 'px';
+    </script>
+</body>
+</html>
